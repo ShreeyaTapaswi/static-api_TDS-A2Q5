@@ -1,0 +1,29 @@
+name: Cache Dependencies
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: cache-bd44a1b
+
+      - name: prime-cache-bd44a1b
+        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
+
+**Step 7: Submit your repo URL:**
+```
+https://github.com/ShreeyaTapaswi/static-api_TDS-A2Q5
