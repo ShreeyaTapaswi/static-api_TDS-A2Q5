@@ -18,12 +18,8 @@ jobs:
         id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/.cache
+          path: ~/my-cache
           key: cache-bd44a1b
 
       - name: prime-cache-bd44a1b
-        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
-
-**Step 7: Submit your repo URL:**
-```
-https://github.com/ShreeyaTapaswi/static-api_TDS-A2Q5
+        run: echo "Cache hit ${{ steps.cache-step.outputs.cache-hit }}"
